@@ -7,15 +7,15 @@ app.get("/", function(req, res) {
     res.send("Home page");
 })
 
-app.get("/about", function(req, res) {
+app.post("/about", function(req, res) {
     res.send("About page");
 })
 
-app.get("/contact", function(req, res) {
+app.put("/contact", function(req, res) {
     res.send("Contact page");
 })
 
-app.get("/service", function(req, res) {
+app.delete("/service", function(req, res) {
     res.send("Service page");
 })
 
