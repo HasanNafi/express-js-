@@ -52,6 +52,19 @@ app.get("/JSON", function(req, res) {
     res.json(myJson);
 })
 
+
+//Response Download
+
+app.get("/download", function(req, res) {
+    res.download("puppy.jpg");
+})
+
+
+
+
+
+
+
 app.listen(port, function() {
     console.log("server run success");
 })
