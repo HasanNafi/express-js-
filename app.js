@@ -119,6 +119,18 @@ app.get("/cookieClear", function(req, res) {
 //......................................................................//
 //......................................................................//
 
+// Get request query with url 
+app.get("/urlQuery", function(req, res) {
+
+    let firstName = req.query.firstName;
+    let lastName = req.query.lastName;
+
+    res.end(firstName + " " + lastName);
+})
+
+//......................................................................//
+//......................................................................//
+
 
 
 app.listen(port, function() {
