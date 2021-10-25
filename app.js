@@ -93,6 +93,18 @@ app.get("/header", function(req, res) {
 
 //......................................................................//
 //......................................................................//
+//response cookie
+app.get("/cookie", function(req, res) {
+
+    res.cookie("name", "Anik Hasan Nafi");
+    res.cookie("age", " 24 years");
+    res.cookie("City", "Dhaka");
+
+    res.send("Cookie set successfully");
+})
+
+//......................................................................//
+//......................................................................//
 
 
 app.listen(port, function() {
