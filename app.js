@@ -131,6 +131,29 @@ app.get("/urlQuery", function(req, res) {
 //......................................................................//
 //......................................................................//
 
+// Get header request query with url 
+app.get("/urlHeader", function(req, res) {
+
+    let firstName = req.header("firstName"); //Place this firstName in the header section of postman
+    let lastName = req.header("lastName"); //place this lastName in the header section of postman
+
+    res.end(firstName + " " + lastName);
+})
+
+//......................................................................//
+//......................................................................//
+
+// Post request query with url 
+app.post("/postUrlQuery", function(req, res) {
+
+    let firstName = req.query.firstName;
+    let lastName = req.query.lastName;
+
+    res.end(firstName + " " + lastName);
+})
+
+//......................................................................//
+//......................................................................//
 
 
 app.listen(port, function() {
