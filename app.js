@@ -37,45 +37,62 @@ app.delete("/service", function(req, res) {
 //Response JSON
 
 app.get("/JSON", function(req, res) {
-        //res.send("JSON response code");
-        let myJson = [{
-                name: "Anik",
-                occupaion: "Engr.",
-                age: "24"
-            },
-            {
-                name: "Hasan",
-                occupaion: "Engr.",
-                age: "24"
-            },
-            {
-                name: "Nafi",
-                occupaion: "Engr.",
-                age: "24"
-            }
-        ]
-        res.json(myJson);
-    })
-    //......................................................................//
-    //......................................................................//
-    //Response Download
+    //res.send("JSON response code");
+    let myJson = [{
+            name: "Anik",
+            occupaion: "Engr.",
+            age: "24"
+        },
+        {
+            name: "Hasan",
+            occupaion: "Engr.",
+            age: "24"
+        },
+        {
+            name: "Nafi",
+            occupaion: "Engr.",
+            age: "24"
+        }
+    ]
+    res.json(myJson);
+})
+
+//......................................................................//
+//......................................................................//
+//Response Download
 
 app.get("/download", function(req, res) {
-        res.download("puppy.jpg");
-    })
-    //......................................................................//
-    //......................................................................//
-    //Response Redirect
+    res.download("puppy.jpg");
+})
+
+
+//......................................................................//
+//......................................................................//
+//Response Redirect
 
 app.get("/Bangladesh", function(req, res) {
     res.redirect("http://localhost:8000/India");
 })
 
 app.get("/India", function(req, res) {
-        res.send("this is India");
-    })
-    //......................................................................//
-    //......................................................................//
+    res.send("this is India");
+})
+
+//......................................................................//
+//......................................................................//
+
+//response header
+app.get("/header", function(req, res) {
+
+    res.append("name", "Anik Hasan Nafi");
+    res.append("age", " 24 years");
+    res.append("City", "Dhaka");
+
+    res.status(201).send("this is body section");
+})
+
+//......................................................................//
+//......................................................................//
 
 
 app.listen(port, function() {
