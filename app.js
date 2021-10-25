@@ -7,6 +7,9 @@ const port = 8000;
 //res.send()  indicate to the body 
 //res.end()  indicate to the end situation of the present code 
 
+
+
+//Response status code
 app.get("/", function(req, res) {
     res.send("Home page");
     //res.status(401).send("simple string")    for changing  the status code
@@ -22,6 +25,31 @@ app.put("/contact", function(req, res) {
 
 app.delete("/service", function(req, res) {
     res.send("Service page");
+})
+
+
+
+//Response JSON
+
+app.get("/JSON", function(req, res) {
+    //res.send("JSON response code");
+    let myJson = [{
+            name: "Anik",
+            occupaion: "Engr.",
+            age: "24"
+        },
+        {
+            name: "Hasan",
+            occupaion: "Engr.",
+            age: "24"
+        },
+        {
+            name: "Nafi",
+            occupaion: "Engr.",
+            age: "24"
+        }
+    ]
+    res.json(myJson);
 })
 
 app.listen(port, function() {
