@@ -93,7 +93,7 @@ app.get("/header", function(req, res) {
 
 //......................................................................//
 //......................................................................//
-//response cookie
+//response cookie set
 app.get("/cookie", function(req, res) {
 
     res.cookie("name", "Anik Hasan Nafi");
@@ -105,6 +105,20 @@ app.get("/cookie", function(req, res) {
 
 //......................................................................//
 //......................................................................//
+
+//response cookie clear
+app.get("/cookieClear", function(req, res) {
+
+    res.clearCookie("name");
+    res.clearCookie("age");
+    //res.clearCookie("City", "Dhaka");
+
+    res.send("Cookie clear successfully");
+})
+
+//......................................................................//
+//......................................................................//
+
 
 
 app.listen(port, function() {
