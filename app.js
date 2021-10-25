@@ -155,6 +155,18 @@ app.post("/postUrlQuery", function(req, res) {
 //......................................................................//
 //......................................................................//
 
+// Post header request query with url 
+app.post("/postUrlHeader", function(req, res) {
+
+    let firstName = req.header("firstName"); //Place this firstName in the header section of postman
+    let lastName = req.header("lastName"); //place this lastName in the header section of postman
+
+    res.end(firstName + " " + lastName);
+})
+
+//......................................................................//
+//......................................................................//
+
 
 app.listen(port, function() {
     console.log("server run success");
