@@ -1,6 +1,11 @@
 const express = require('express');
-
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
 const port = 8000;
 
 
@@ -167,6 +172,20 @@ app.post("/postUrlHeader", function(req, res) {
 //......................................................................//
 //......................................................................//
 
+// working with json body 
+app.use("/jsonBody", function(req, res) {
+
+    let jsonData = JSON.parse(req.body);
+    // let jsonString = JSON.stringify(jsonData);
+    // res.send(jsonString);
+    let name = jsonData['name'];
+    let city = jsonData['city'];
+    res.end(name + " " + city);
+
+})
+
+//......................................................................//
+//......................................................................//
 
 app.listen(port, function() {
     console.log("server run success");
