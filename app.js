@@ -203,6 +203,30 @@ app.post("/formData", function(req, res) {
 //......................................................................//
 //......................................................................//
 
+//working with multer file upload
+let storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, './uploads')
+    },
+    filename: function(req, file, callback) {
+        callback(null, file.originalname)
+    },
+});
+
+var upload = multer({ storage: storage }).single('myfile');
+app.post('/fileUpload', function(req, res) {
+    upload(req, res, function(error) {
+        if (error) {
+            res.end("Error uploading file.");
+        } else {
+            res.end("file is uploaded successfully");
+        }
+    });
+})
+
+//......................................................................//
+//......................................................................//
+
 app.listen(port, function() {
     console.log("server run success");
 })
