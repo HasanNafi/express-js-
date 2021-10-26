@@ -1,10 +1,7 @@
 const express = require('express');
+const multer = require('multer');
 const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}));
+const multerApp = multer();
 
 const port = 8000;
 
@@ -173,7 +170,13 @@ app.post("/postUrlHeader", function(req, res) {
 //......................................................................//
 
 // working with json body 
-app.use("/jsonBody", function(req, res) {
+
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
+
+app.get("/jsonBody", function(req, res) {
 
     let jsonData = JSON.parse(req.body);
     // let jsonString = JSON.stringify(jsonData);
@@ -181,6 +184,19 @@ app.use("/jsonBody", function(req, res) {
     let name = jsonData['name'];
     let city = jsonData['city'];
     res.end(name + " " + city);
+
+})
+
+//......................................................................//
+//......................................................................//
+
+//working with multipart form data
+app.use(multerApp.array());
+app.use(express.static('public'));
+app.post("/formData", function(req, res) {
+
+    let reqBody = req.body;
+    res.end(JSON.stringify(reqBody));
 
 })
 
